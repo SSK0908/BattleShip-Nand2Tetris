@@ -1,0 +1,7 @@
+//make an array and find number of duplicate elements
+class Main {
+    function void main() {
+        do Board.setBoard();
+        return;
+    }
+}

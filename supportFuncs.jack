@@ -1,0 +1,19 @@
+class supportFuncs {
+
+    function int rng() {
+        var int seed, a;
+        var String strSeed, aStr;
+        let aStr = String.new(4);
+        let strSeed = Keyboard.readLine("Enter random 2 digit number for seed: ");
+        let seed = strSeed.intValue();
+        let a = seed * seed;
+        do aStr.setInt(a);
+        do aStr.eraseLastChar();
+        do Output.printString(aStr);
+        if(aStr.length() > 2){
+            do aStr.setCharAt(0, "");
+        }
+        do Output.printString(aStr);
+        return aStr.intValue();
+    }
+}

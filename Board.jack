@@ -1,0 +1,7 @@
+class Board {
+
+    function void setBoard() {
+        do Screen.drawLine(100, 10, 100, 10);
+        return;
+    }
+}
