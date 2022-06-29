@@ -1,7 +1,44 @@
 //make an array and find number of duplicate elements
 class Main {
     function void main() {
-        do Board.setBoard();
+        var Array a;
+        var int num;
+        var int ax1, ay1, ax2, ay2, bx1, by1, bx2, by2, cx1, cy1, cx2, cy2, dx1, dy1, dx2, dy2;
+        let ax1 = Keyboard.readInt("Enter x-axis start value for 3 block ship 1: ");
+        let ay1 = Keyboard.readInt("Enter y-axis start value for 3 block ship 1: ");
+        let ax2 = Keyboard.readInt("Enter x-axis end value for 3 block ship 1: ");
+        let ay2 = Keyboard.readInt("Enter y-axis end value for 3 block ship 1: ");
+        let bx1 = Keyboard.readInt("Enter x-axis start value for 2 block ship 2: ");
+        let by1 = Keyboard.readInt("Enter y-axis start value for 2 block ship 2: ");
+        let bx2 = Keyboard.readInt("Enter x-axis end value for 2 block ship 2: ");
+        let by2 = Keyboard.readInt("Enter y-axis end value for 2 block ship 2: ");
+        let cx1 = Keyboard.readInt("Enter x-axis start value for 3 block ship 3: ");
+        let cy1 = Keyboard.readInt("Enter y-axis start value for 3 block ship 3: ");
+        let cx2 = Keyboard.readInt("Enter x-axis end value for 3 block ship 3: ");
+        let cy2 = Keyboard.readInt("Enter y-axis end value for 3 block ship 3: ");
+        let dx1 = Keyboard.readInt("Enter x-axis start value for 2 block ship 4: ");
+        let dy1 = Keyboard.readInt("Enter y-axis start value for 2 block ship 4: ");
+        let dx2 = Keyboard.readInt("Enter x-axis end value for 2 block ship 4: ");
+        let dy2 = Keyboard.readInt("Enter y-axis end value for 2 block ship 4: ");
+        do Screen.clearScreen();
+        do Board.newInstance();
+        do Ships.newInstance(ax1, ay1, ax2, ay2, bx1, by1, bx2, by2, cx1, cy1, cx2, cy2, dx1, dy1, dx2, dy2);
+        //var Random randint;
+        //var int meow;
+        //let randint = Random.randn();
+        //do Output.printInt(randint);
+/*        var int x;
+        var String p;
+        var int y;
+        let p = String.new(3);
+        let x = 832;
+        do p.setInt(x);
+        do Output.printString(p);
+       // var String p;
+       // var int q;
+       // let p = "8";
+        let y = p.intValue();
+        do Output.printInt(y);*/
         return;
     }
 }
