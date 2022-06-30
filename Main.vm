@@ -1493,36 +1493,11 @@ push local 16
 push local 17
 call Ships.newInstance 16
 pop temp 0
-call Ships.getship1Column 0
-pop local 0
 push constant 0
-pop local 1
-call Screen.clearScreen 0
-pop temp 0
-push constant 1
-push constant 1
+push constant 0
 call Output.moveCursor 2
 pop temp 0
-label WHILE_EXP0
-push local 1
-push constant 3
-lt
-not
-if-goto WHILE_END0
-push local 1
-push local 0
-add
-pop pointer 1
-push that 0
-call Output.printInt 1
+call Attack.askForAttack 0
 pop temp 0
-call Output.println 0
-pop temp 0
-push local 1
-push constant 1
-add
-pop local 1
-goto WHILE_EXP0
-label WHILE_END0
 push constant 0
 return

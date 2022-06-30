@@ -1,0 +1,118 @@
+class Attack {
+     
+     static int rowInput, columnInput;
+     static Array ship1Row, ship1Column, ship2Row, ship2Column, ship3Row, ship3Column, ship4Row, ship4Column;
+
+     function void setArrs(){
+        do Attack.getshipRows();
+        do Attack.getshipColumns();
+        return;
+     }
+
+     function void askForAttack() {
+          do Attack.setArrs();
+          do Output.printString("Now player 2 must guess the locations where player 1 placed the ships");
+          let rowInput = Keyboard.readInt("Enter row number: ");
+          let rowInput = 6 + (3 * (rowInput - 1));
+          let columnInput = Keyboard.readInt("Enter column number: ");
+          let columnInput = 17 + (7 * (columnInput - 1));
+          do Attack.compare();
+          return;
+     }
+
+     function void compare() {
+          var int iter;
+          // to compare to ship 1 stuff
+          let iter = 0;
+          while (iter < 3) {
+               if (rowInput = ship1Row[iter]){
+                    if (columnInput = ship1Column[iter]) {
+                         do Output.moveCursor(rowInput, columnInput);
+                         do Output.printString("X1");
+                         do Output.moveCursor(0, 0);
+                         do Attack.askForAttack();
+                    }
+                    else {
+                         let iter = iter + 1;
+                    }
+               }
+               else {
+                    let iter = iter + 1;
+               }
+          }
+
+          let iter = 0;
+          while (iter < 2) {
+               if (rowInput = ship2Row[iter]){
+                    if (columnInput = ship2Column[iter]) {
+                         do Output.moveCursor(rowInput, columnInput);
+                         do Output.printString("X2");
+                         do Output.moveCursor(0, 0);
+                         do Attack.askForAttack();
+                    }
+                    else {
+                         let iter = iter + 1;
+                    }
+               }
+               else {
+                    let iter = iter + 1;
+               }
+          }
+
+          let iter = 0;
+          while (iter < 3) {
+               if (rowInput = ship3Row[iter]){
+                    if (columnInput = ship3Column[iter]) {
+                         do Output.moveCursor(rowInput, columnInput);
+                         do Output.printString("X3");
+                         do Output.moveCursor(0, 0);
+                         do Attack.askForAttack();
+                    }
+                    else {
+                         let iter = iter + 1;
+                    }
+               }
+               else {
+                    let iter = iter + 1;
+               }
+          }
+
+          let iter = 0;
+          while (iter < 2) {
+               if (rowInput = ship4Row[iter]){
+                    if (columnInput = ship4Column[iter]) {
+                         do Output.moveCursor(rowInput, columnInput);
+                         do Output.printString("X4");
+                         do Output.moveCursor(0, 0);
+                         do Attack.askForAttack();
+                    }
+                    else {
+                         let iter = iter + 1;
+                    }
+               }
+               else {
+                    let iter = iter + 1;
+               }
+          }
+
+          do Output.moveCursor(0, 0);
+          do Attack.askForAttack();
+          return;
+     }          
+
+    function void getshipRows() {
+          let ship1Row = Ships.getship1Row();
+          let ship2Row = Ships.getship2Row();
+          let ship3Row = Ships.getship3Row();
+          let ship4Row = Ships.getship4Row();
+          return;
+    }
+
+    function void getshipColumns(){
+          let ship1Column = Ships.getship1Column();
+          let ship2Column = Ships.getship2Column();
+          let ship3Column = Ships.getship3Column();
+          let ship4Column = Ships.getship4Column();
+          return;
+    }
+}
