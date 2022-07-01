@@ -14,6 +14,7 @@ class Attack {
           do Output.printString("Now player 2 must guess the locations where player 1 placed the ships");
           let rowInput = Keyboard.readInt("Enter row number: ");
           let rowInput = 6 + (3 * (rowInput - 1));
+          do Output.moveCursor(2, 0);
           let columnInput = Keyboard.readInt("Enter column number: ");
           let columnInput = 17 + (7 * (columnInput - 1));
           do Attack.compare();
@@ -21,15 +22,21 @@ class Attack {
      }
 
      function void compare() {
-          var int iter;
+          var int iter, bs;
           // to compare to ship 1 stuff
           let iter = 0;
+          let bs = 22;
           while (iter < 3) {
                if (rowInput = ship1Row[iter]){
                     if (columnInput = ship1Column[iter]) {
                          do Output.moveCursor(rowInput, columnInput);
                          do Output.printString("X1");
-                         do Output.moveCursor(0, 0);
+                         while (bs > (-1)){
+                              do Output.moveCursor(2, bs);
+                              do Output.backSpace();
+                              let bs = bs - 1;
+                         }
+                         do Output.moveCursor(0, 0);                         
                          do Attack.askForAttack();
                     }
                     else {
@@ -47,6 +54,11 @@ class Attack {
                     if (columnInput = ship2Column[iter]) {
                          do Output.moveCursor(rowInput, columnInput);
                          do Output.printString("X2");
+                         while (bs > (-1)){
+                              do Output.moveCursor(2, bs);
+                              do Output.backSpace();
+                              let bs = bs - 1;
+                         }
                          do Output.moveCursor(0, 0);
                          do Attack.askForAttack();
                     }
@@ -65,6 +77,11 @@ class Attack {
                     if (columnInput = ship3Column[iter]) {
                          do Output.moveCursor(rowInput, columnInput);
                          do Output.printString("X3");
+                         while (bs > (-1)){
+                              do Output.moveCursor(2, bs);
+                              do Output.backSpace();
+                              let bs = bs - 1;
+                         }
                          do Output.moveCursor(0, 0);
                          do Attack.askForAttack();
                     }
@@ -83,6 +100,11 @@ class Attack {
                     if (columnInput = ship4Column[iter]) {
                          do Output.moveCursor(rowInput, columnInput);
                          do Output.printString("X4");
+                         while (bs > (-1)){
+                              do Output.moveCursor(2, bs);
+                              do Output.backSpace();
+                              let bs = bs - 1;
+                         }
                          do Output.moveCursor(0, 0);
                          do Attack.askForAttack();
                     }
@@ -94,7 +116,12 @@ class Attack {
                     let iter = iter + 1;
                }
           }
-
+          
+          while (bs > (-1)){
+               do Output.moveCursor(2, bs);
+               do Output.backSpace();
+               let bs = bs - 1;
+          }
           do Output.moveCursor(0, 0);
           do Attack.askForAttack();
           return;
