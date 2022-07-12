@@ -263,7 +263,7 @@ not
 if-goto WHILE_END0
 push static 0
 push local 0
-push static 2
+push static 4
 add
 pop pointer 1
 push that 0
@@ -273,7 +273,7 @@ goto IF_FALSE0
 label IF_TRUE0
 push static 1
 push local 0
-push static 3
+push static 5
 add
 pop pointer 1
 push that 0
@@ -312,6 +312,10 @@ sub
 pop local 1
 goto WHILE_EXP1
 label WHILE_END1
+call Attack.updateScore 0
+pop temp 0
+call Attack.checkForEnd 0
+pop temp 0
 call Visual.hitH 0
 pop temp 0
 call Visual.hitI 0
@@ -355,7 +359,7 @@ not
 if-goto WHILE_END2
 push static 0
 push local 0
-push static 4
+push static 6
 add
 pop pointer 1
 push that 0
@@ -365,7 +369,7 @@ goto IF_FALSE2
 label IF_TRUE2
 push static 1
 push local 0
-push static 5
+push static 7
 add
 pop pointer 1
 push that 0
@@ -404,6 +408,10 @@ sub
 pop local 1
 goto WHILE_EXP3
 label WHILE_END3
+call Attack.updateScore 0
+pop temp 0
+call Attack.checkForEnd 0
+pop temp 0
 call Visual.hitH 0
 pop temp 0
 call Visual.hitI 0
@@ -447,7 +455,7 @@ not
 if-goto WHILE_END4
 push static 0
 push local 0
-push static 6
+push static 8
 add
 pop pointer 1
 push that 0
@@ -457,7 +465,7 @@ goto IF_FALSE4
 label IF_TRUE4
 push static 1
 push local 0
-push static 7
+push static 9
 add
 pop pointer 1
 push that 0
@@ -496,6 +504,10 @@ sub
 pop local 1
 goto WHILE_EXP5
 label WHILE_END5
+call Attack.updateScore 0
+pop temp 0
+call Attack.checkForEnd 0
+pop temp 0
 call Visual.hitH 0
 pop temp 0
 call Visual.hitI 0
@@ -539,7 +551,7 @@ not
 if-goto WHILE_END6
 push static 0
 push local 0
-push static 8
+push static 10
 add
 pop pointer 1
 push that 0
@@ -549,7 +561,7 @@ goto IF_FALSE6
 label IF_TRUE6
 push static 1
 push local 0
-push static 9
+push static 11
 add
 pop pointer 1
 push that 0
@@ -588,6 +600,10 @@ sub
 pop local 1
 goto WHILE_EXP7
 label WHILE_END7
+call Attack.updateScore 0
+pop temp 0
+call Attack.checkForEnd 0
+pop temp 0
 call Visual.hitH 0
 pop temp 0
 call Visual.hitI 0
@@ -640,6 +656,8 @@ sub
 pop local 1
 goto WHILE_EXP8
 label WHILE_END8
+call Attack.updateScore 0
+pop temp 0
 call Visual.hitM 0
 pop temp 0
 call Visual.HitI 0
@@ -651,6 +669,8 @@ pop temp 0
 push constant 10000
 call Sys.wait 1
 pop temp 0
+call Visual.clearStatus 0
+pop temp 0
 push constant 0
 push constant 0
 call Output.moveCursor 2
@@ -661,23 +681,132 @@ push constant 0
 return
 function Attack.getshipRows 0
 call Ships.getship1Row 0
-pop static 2
-call Ships.getship2Row 0
 pop static 4
-call Ships.getship3Row 0
+call Ships.getship2Row 0
 pop static 6
-call Ships.getship4Row 0
+call Ships.getship3Row 0
 pop static 8
+call Ships.getship4Row 0
+pop static 10
 push constant 0
 return
 function Attack.getshipColumns 0
 call Ships.getship1Column 0
-pop static 3
-call Ships.getship2Column 0
 pop static 5
-call Ships.getship3Column 0
+call Ships.getship2Column 0
 pop static 7
-call Ships.getship4Column 0
+call Ships.getship3Column 0
 pop static 9
+call Ships.getship4Column 0
+pop static 11
+push constant 0
+return
+function Attack.setScore 0
+push constant 1
+neg
+pop static 2
+push constant 0
+pop static 3
+push constant 0
+return
+function Attack.updateScore 0
+push static 2
+push constant 1
+add
+pop static 2
+push constant 22
+push constant 55
+call Output.moveCursor 2
+pop temp 0
+push constant 7
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 22
+push constant 63
+call Output.moveCursor 2
+pop temp 0
+call Output.backSpace 0
+pop temp 0
+push static 2
+call Output.printInt 1
+pop temp 0
+push constant 0
+return
+function Attack.checkForEnd 0
+push static 3
+push constant 1
+add
+pop static 3
+push static 3
+push constant 10
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+call Screen.clearScreen 0
+pop temp 0
+call Visual.writeYouWin 0
+pop temp 0
+push constant 22
+push constant 55
+call Output.moveCursor 2
+pop temp 0
+push constant 7
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 22
+push constant 63
+call Output.moveCursor 2
+pop temp 0
+call Output.backSpace 0
+pop temp 0
+push static 2
+call Output.printInt 1
+pop temp 0
+label WHILE_EXP0
+call Keyboard.keyPressed 0
+push constant 32
+eq
+not
+not
+if-goto WHILE_END0
+push constant 1
+call Sys.wait 1
+pop temp 0
+goto WHILE_EXP0
+label WHILE_END0
+call Main.main 0
+pop temp 0
+label IF_FALSE0
 push constant 0
 return
