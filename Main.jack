@@ -6,23 +6,6 @@ class Main {
         do Attack.updateScore();
         do getInput.getInput();
         do Attack.askForAttack();
-        //do Visual.writeYouWin();
-        //var Random randint;
-        //var int meow;
-        //let randint = Random.randn();
-        //do Output.printInt(randint);
-/*        var int x;
-        var String p;
-        var int y;
-        let p = String.new(3);
-        let x = 832;
-        do p.setInt(x);
-        do Output.printString(p);
-       // var String p;
-       // var int q;
-       // let p = "8";
-        let y = p.intValue();
-        do Output.printInt(y);*/
         return;
     }
 }
